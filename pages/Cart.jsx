@@ -27,6 +27,9 @@ function Cart() {
         <p className="font-bold tracking-widest ">Total</p>
         <p className="font-bold tracking-widest">{`$${total}`}</p>
       </div>
+      <button className="fixed bottom-10 right-[50%] translate-x-[50%] rounded-full duration-300 shadow-[0_0_50px_10px_#645cff] hover:py-4 hover:-translate-y-3 font-bold text-lg uppercase bg-[#645cff] p-3 px-5 text-white ">
+        checkout
+      </button>
     </>
   );
 }
