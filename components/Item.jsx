@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Item({ item }) {
   const dispatch = useDispatch();
   return (
-    <article className="flex w-full max-w-[600px] mb-3">
+    <article className="flex w-full mr-1 max-w-[600px] mb-3">
       <img
         src={item.thumbnail}
         className=" w-[150px] md:w-[200px] object-contain"
@@ -36,7 +36,7 @@ function Item({ item }) {
         >
           <BsChevronUp size={30} color="#645cff" />
         </button>
-        <p className="text-md my-4">{item.quantity}</p>
+        <p className="text-md ">{item.quantity}</p>
         <button
           onClick={() => {
             if (item.quantity > 1) dispatch(decreseQuantity(item.id));

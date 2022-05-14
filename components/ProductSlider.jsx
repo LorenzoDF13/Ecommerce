@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-cube';
 import 'swiper/css/effect-fade';
+import LoadingCard from './LoadingCard';
 function ProductSlider({ category }) {
   const [width, setWidth] = useState(0);
   const [products, setProducts] = useState(null);
@@ -16,6 +17,7 @@ function ProductSlider({ category }) {
     window.addEventListener('resize', function (data) {
       setWidth(data.currentTarget.innerWidth);
     });
+
     const localStorageProducts = JSON.parse(localStorage.getItem(category));
     if (!localStorageProducts) {
       fetch(`https://dummyjson.com/products/category/${category}`)
@@ -29,10 +31,28 @@ function ProductSlider({ category }) {
     }
   }, []);
   if (!products) {
-    return <div>Loading...</div>;
+    return (
+      <Swiper
+        navigation
+        modules={[Navigation]}
+        slidesPerView={parseInt(width / 200)}
+        effect={'fade'}
+        spaceBetween={30}
+        speed={600}
+        loop
+      >
+        {Array(parseInt(width / 200))
+          .fill('')
+          .map((e, i) => (
+            <SwiperSlide key={Math.random() * 99999}>
+              <LoadingCard key={Math.random() * 99999} />
+            </SwiperSlide>
+          ))}
+      </Swiper>
+    );
   }
   return (
-    <div className="bg-gray-200 dark:bg-gray-200 ">
+    <div className="bg-gray-200  " id={category}>
       <Swiper
         navigation
         modules={[Navigation]}

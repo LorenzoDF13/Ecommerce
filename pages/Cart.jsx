@@ -4,6 +4,10 @@ import Item from '../components/Item';
 
 function Cart() {
   const items = useSelector((state) => state.cart.items);
+  const total = 0;
+  items.map((item) => {
+    total += item.quantity * item.price;
+  });
   if (items.length == 0) {
     return (
       <h1 className=" text-center text-lg">
@@ -18,8 +22,11 @@ function Cart() {
           <Item key={Math.random() * 99999} item={item} />
         ))}
       </div>
-      <hr />
-      {/*METTERE TOTALE*/}
+      <hr className="border-t-[3px] border-slate-400 w-full max-w-[600px] m-auto" />
+      <div className="w-full m-auto pt-2 px-2 flex justify-between  max-w-[600px]">
+        <p className="font-bold tracking-widest ">Total</p>
+        <p className="font-bold tracking-widest">{`$${total}`}</p>
+      </div>
     </>
   );
 }

@@ -64,18 +64,20 @@ function ProductPage({ product }) {
           </div>
         </div>
         <p className="font-bold text-lg p-2 text-gray-700 ">{`Price: $${price}`}</p>
-        <button
-          onClick={addToCart}
-          className="font-bold bg-co p-2 bg-[#645cff] text-white uppercase text-lg hover:scale-110 duration-500"
-        >
-          Aggiungi Al carello
-        </button>
-        <a
-          href="/"
-          className="border-2 font-normal ml-10 p-3 hover:bg-gray-300 hover:border-0 duration-300 text-medium"
-        >
-          Torna Indietro
-        </a>
+        <div className="flex flex-wrap flex-row">
+          <button
+            onClick={addToCart}
+            className="font-bold bg-co p-2 bg-[#645cff] text-white uppercase text-lg hover:scale-110 duration-500"
+          >
+            Aggiungi Al carello
+          </button>
+          <a
+            href="/"
+            className="border-2 font-normal mt-2 ml-10 p-3 hover:bg-gray-300 hover:border-0 duration-300 text-medium"
+          >
+            Torna Indietro
+          </a>
+        </div>
       </div>
     </div>
   );
