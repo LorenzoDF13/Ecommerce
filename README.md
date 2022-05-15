@@ -30,21 +30,5 @@ Tutte le pagine contengono un header con dei riferimenti a delle categorie note 
 che forinisce dati finti da usare come riempimento per il testing. I prodotti sono contenuti in uno scroller orizzontale con il quale è possibile interagire con le apposite freccie. A causa della grande quantità di prodotti da gestire ho realizzato una fantastica animazione di caricamento(vedi foto in basso ) che però non verra visualizzata dato che i prodotti vengono salvati nel **localstorage** e questo azzera quasi i tempi di caricamento.
 ![](https://drive.google.com/uc?export=download&id=1eYlpjNB-Pcu7yWzPfc9fwGAi_pYufrTO)
 ogni prodotto e' una carta cliccabile che porta ad una pagina specifica del prodotto stesso. Qui i caricamenti sono un po più lunghi dato che dobbiamo aspettare la risposta del server alla richiesta del prodotto scelto tramite id. Per la gestione dei routes dinamici [Nextjs](https://nextjs.org/) offre la possibilità di gestire i routes dinamici creando un file con il nome del parametro da ricevere racchiuso tra parentesi quadre, piu informazioni qui [Dynamic routes.](https://nextjs.org/docs/routing/dynamic-routes) ![](https://drive.google.com/uc?export=download&id=1rf_fsrQ3gWRYHtBCdjJobOxeGlfIDejy)
-In questa pagina abbiamo la possibiltà di scegliere la quantità di elementi da inserire nel carrello ed un bottone per inserli. Al click di questo bottone corrispondera il dispatching di un azione al reducer che modificherà lo stato in base a come richiesto dall azione con conseguente rirendering di tutti i componenti che utilizzano quello stato. (più informazioni qui [Redux essentials](https://redux.js.org/tutorials/essentials/part-1-overview-concepts)) Cliccando sull'icona del carello sarà possibile recarsi e visionare tutti gli elementi precedentemente aggiunti che persisteranno tra le sessioni in quanto memorizzati nei **Cookies**
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+In questa pagina abbiamo la possibiltà di scegliere la quantità di elementi da inserire nel carrello ed un bottone per inserli. Al click di questo bottone corrispondera il dispatching di un azione al reducer che modificherà lo stato in base a come richiesto dall azione con conseguente rirendering di tutti i componenti che utilizzano quello stato. (più informazioni qui [Redux essentials](https://redux.js.org/tutorials/essentials/part-1-overview-concepts)) Cliccando sull'icona del carello sarà possibile recarsi e visionare tutti gli elementi precedentemente aggiunti che persisteranno tra le sessioni in quanto memorizzati nei **Cookies** e moficarne la quantità o rimuverli. Ovviamente ad ogni azione di modifica dei prodotti presenti conseguira un aggiornamento dei prezzi e tutti i valori ad esso correlati ![](https://drive.google.com/uc?export=download&id=1GCmGqLwWGoC9NAw1IyiBa5dvlLZjYbAe) Da qui sarà possibile effetuare il checkout per effettuare il pagamento con carta di credito o google play ( per non incorrere in problemi legali tutti i pagamenti vengono effettuati in test mode ovvero non verrà scalato nessun costo). ![](https://drive.google.com/uc?export=download&id=1cczQWKYsKPSwKVzSr_RRLDZCQUd-zieP) In caso di avvenuto pagamento si verra renderizzati ad una pagina di successo con dei fantastici coriandoli che svolazzeranno per lo schermo ![](https://drive.google.com/uc?export=download&id=1ssd3a0DDfD9OmFi6OxUwmNnWQbNIxSne)
+Ci tengo a precisare che sono un mostro.
