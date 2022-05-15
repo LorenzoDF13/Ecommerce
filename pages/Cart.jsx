@@ -1,8 +1,22 @@
+import { useSpring, animated } from '@react-spring/web';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Item from '../components/Item';
 
 function Cart() {
+  const slideUp = useSpring({
+    from: {
+      translateY: 1000,
+    },
+    to: {
+      translateY: 0,
+    },
+    delay: 300,
+    config: {
+      friction: 15,
+      mass: 1,
+    },
+  });
   const items = useSelector((state) => state.cart.items);
   const total = 0;
   items.map((item) => {
@@ -27,9 +41,13 @@ function Cart() {
         <p className="font-bold tracking-widest ">Total</p>
         <p className="font-bold tracking-widest">{`$${total}`}</p>
       </div>
-      <button className="fixed bottom-10 right-[50%] translate-x-[50%] rounded-full duration-300 shadow-[0_0_50px_10px_#645cff] hover:py-4 hover:-translate-y-3 font-bold text-lg uppercase bg-[#645cff] p-3 px-5 text-white ">
+      <animated.a
+        style={slideUp}
+        href="/api/checkout"
+        className="fixed  right-[50%] translate-x-[50%] rounded-full  shadow-[0_0_50px_10px_#645cff] hover:py-4 hover:-translate-y-3 font-bold text-lg uppercase bg-[#645cff] p-3 px-5 text-white "
+      >
         checkout
-      </button>
+      </animated.a>
     </>
   );
 }

@@ -12,3 +12,19 @@
     @apply bg-black text-white;
   }
 }
+@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX();
+  }
+}
+@keyframes fadeup {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY();
+  }
+}

@@ -1,7 +1,8 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import { FiShoppingBag } from 'react-icons/Fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCart } from '../features/Cart/cartSlice';
+import { getCookie } from 'cookies-next';
 function Header() {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
@@ -9,10 +10,10 @@ function Header() {
   items.map((item) => {
     itemsNumber += item.quantity;
   });
-  useLayoutEffect(() => {
-    const localStorageItems = JSON.parse(localStorage.getItem('Cart'));
-    if (localStorageItems) {
-      dispatch(loadCart(localStorageItems));
+  useEffect(() => {
+    const cookiesItems = JSON.parse(getCookie('Cart') || null);
+    if (cookiesItems) {
+      dispatch(loadCart(cookiesItems));
     }
   }, []);
   return (

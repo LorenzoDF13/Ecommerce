@@ -1,4 +1,5 @@
 import React from 'react';
+import { animated, useSpring } from '@react-spring/web';
 import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import {
@@ -9,9 +10,22 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Item({ item }) {
+  const slide = useSpring({
+    from: {
+      translateX: '100vw',
+    },
+    to: {
+      translateX: '0',
+    },
+    delay: 100,
+    config: { friction: 10, tension: 300 },
+  });
   const dispatch = useDispatch();
   return (
-    <article className="flex w-full mr-1 max-w-[600px] mb-3">
+    <animated.article
+      style={slide}
+      className="flex w-full mr-1 max-w-[600px] mb-3"
+    >
       <img
         src={item.thumbnail}
         className=" w-[150px] md:w-[200px] object-contain"
@@ -45,7 +59,7 @@ function Item({ item }) {
           <BsChevronDown size={30} color="#645cff" />
         </button>
       </div>
-    </article>
+    </animated.article>
   );
 }
 

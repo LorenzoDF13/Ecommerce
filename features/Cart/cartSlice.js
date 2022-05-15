@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { setCookies } from 'cookies-next';
 const initialState = {
   items: [],
 };
@@ -9,7 +10,7 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, { payload }) => {
       state.items.push(payload);
-      localStorage.setItem('Cart', JSON.stringify(state.items));
+      setCookies('Cart', JSON.stringify(state.items));
     },
     loadCart: (state, { payload }) => {
       return {
@@ -19,17 +20,17 @@ const cartSlice = createSlice({
     increaseQuantity: (state, { payload }) => {
       const i = state.items.findIndex((item) => item.id == payload);
       state.items[i].quantity++;
-      localStorage.setItem('Cart', JSON.stringify(state.items));
+      setCookies('Cart', JSON.stringify(state.items));
     },
     decreseQuantity: (state, { payload }) => {
       const i = state.items.findIndex((item) => item.id == payload);
       state.items[i].quantity--;
-      localStorage.setItem('Cart', JSON.stringify(state.items));
+      setCookies('Cart', JSON.stringify(state.items));
     },
     removeItem: (state, { payload }) => {
       const i = state.items.findIndex((item) => item.id == payload);
       state.items.splice(i, 1);
-      localStorage.setItem('Cart', JSON.stringify(state.items));
+      setCookies('Cart', JSON.stringify(state.items));
     },
   },
 });
