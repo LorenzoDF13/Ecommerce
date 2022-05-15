@@ -7,7 +7,7 @@ function Succes() {
     setWindowSize({ x: window.innerWidth, y: windowSize.innerHeigth });
     setCookies('Cart', JSON.stringify([]));
   }, []);
-
+  //TODO PROTEGGERE QUESTA PAGINA
   return (
     <>
       <Confetti width={windowSize.x} height={windowSize.y}></Confetti>

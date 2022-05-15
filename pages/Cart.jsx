@@ -9,12 +9,13 @@ function Cart() {
       translateY: 1000,
     },
     to: {
-      translateY: 0,
+      translateY: 20,
     },
-    delay: 300,
+    delay: 500,
     config: {
-      friction: 15,
-      mass: 1,
+      friction: 20,
+      mass: 1.5,
+      tension: 400,
     },
   });
   const items = useSelector((state) => state.cart.items);
