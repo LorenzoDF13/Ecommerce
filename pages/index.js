@@ -1,10 +1,9 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import ProductSlider from '../components/ProductSlider';
-
+import Head from 'next/head';
 export default function Home() {
   const [categories, setCategories] = useState(null);
   useEffect(() => {
@@ -24,6 +23,9 @@ export default function Home() {
   }, []);
   return (
     <>
+      <Head>
+        <title>Benvenuto!</title>
+      </Head>
       <Image src={'/Home.png'} width="375" height={'216'} layout="responsive" />
       {categories ? (
         categories.map((category) => (

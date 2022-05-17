@@ -17,7 +17,8 @@ export default async function handler(req, res) {
       },
     })),
     mode: 'payment',
-    success_url: 'http://localhost:3000/Success',
+    success_url:
+      'http://localhost:3000/Success?session_id={CHECKOUT_SESSION_ID}',
     cancel_url: 'http://localhost:3000/',
   });
   res.redirect(303, session.url);

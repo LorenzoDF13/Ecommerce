@@ -5,7 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../features/Cart/cartSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
+import { useSpring, animated } from '@react-spring/web';
 function ProductPage({ product }) {
+  const router = useRouter();
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
@@ -22,13 +25,39 @@ function ProductPage({ product }) {
     dispatch(addItem(item));
     toast.success('Aggiunto con successo!');
   }
+  const slideRigth = useSpring({
+    from: {
+      translateX: -800,
+    },
+    to: {
+      translateX: 0,
+    },
+    delay: 200,
+    config: {
+      friction: 30,
+      mass: 2,
+    },
+  });
+  const slideLeft = useSpring({
+    from: {
+      translateX: 800,
+    },
+    to: {
+      translateX: 0,
+    },
+    delay: 200,
+    config: {
+      friction: 30,
+      mass: 2,
+    },
+  });
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex m-auto w-fit flex-col md:flex-row">
       <ToastContainer theme="dark" position="bottom-center" />
       <div>
-        <img src={product.thumbnail} />
+        <animated.img style={slideRigth} src={product.thumbnail} />
       </div>
-      <div className="p-5">
+      <animated.div style={slideLeft} className="p-5">
         <h1 className="text-2xl primary pl-3 uppercase py-3">
           {product.title}
         </h1>
@@ -72,13 +101,13 @@ function ProductPage({ product }) {
             Aggiungi Al carello
           </button>
           <a
-            href="/"
+            onClick={() => router.back()}
             className="border-2 font-normal mt-2 ml-10 p-3 hover:bg-gray-300 hover:border-0 duration-300 text-medium"
           >
             Torna Indietro
           </a>
         </div>
-      </div>
+      </animated.div>
     </div>
   );
 }

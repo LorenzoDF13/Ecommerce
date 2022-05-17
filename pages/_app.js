@@ -5,8 +5,9 @@ import { Provider } from 'react-redux';
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={Store}>
-      <Header />
-      <Component {...pageProps} />
+      <Header>
+        <Component {...pageProps} />
+      </Header>
     </Provider>
   );
 }

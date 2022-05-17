@@ -7,23 +7,12 @@ import {
   increaseQuantity,
   removeItem,
 } from '../features/Cart/cartSlice';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-function Item({ item }) {
-  const slide = useSpring({
-    from: {
-      translateX: '100vw',
-    },
-    to: {
-      translateX: '0',
-    },
-    delay: 100,
-    config: { friction: 10, tension: 300 },
-  });
+function Item({ item, animation }) {
   const dispatch = useDispatch();
   return (
     <animated.article
-      style={slide}
+      style={animation}
       className="flex w-full mr-1 max-w-[600px] mb-3"
     >
       <img
