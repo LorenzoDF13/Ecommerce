@@ -4,9 +4,11 @@ import { AiOutlineMinus } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../features/Cart/cartSlice';
 import { ToastContainer, toast } from 'react-toastify';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
 import { useSpring, animated } from '@react-spring/web';
+import Rating from 'react-rating';
 function ProductPage({ product }) {
   const router = useRouter();
   const cartItems = useSelector((state) => state.cart.items);
@@ -27,10 +29,10 @@ function ProductPage({ product }) {
   }
   const slideRigth = useSpring({
     from: {
-      translateX: -800,
+      translateX: '-100vw',
     },
     to: {
-      translateX: 0,
+      translateX: '0',
     },
     delay: 200,
     config: {
@@ -40,10 +42,10 @@ function ProductPage({ product }) {
   });
   const slideLeft = useSpring({
     from: {
-      translateX: 800,
+      translateX: '100vw',
     },
     to: {
-      translateX: 0,
+      translateX: '0',
     },
     delay: 200,
     config: {
@@ -63,7 +65,17 @@ function ProductPage({ product }) {
         </h1>
         <h2 className="text-lg text-gray-700 ">{product.brand}</h2>
         <p className="text-lg font-normal">{product.description}</p>
-        <p className="font-normal text-gray-500">In Stock: {product.stock}</p>
+        <p className="font-normal my-1 text-gray-500">
+          In Stock: {product.stock}
+        </p>
+        <div className="my-2">
+          <Rating
+            emptySymbol={<AiOutlineStar size={30} />}
+            fullSymbol={<AiFillStar size={30} />}
+            readonly
+            initialRating={product.rating}
+          />
+        </div>
         <div className="flex-row flex py-2 items-center ">
           <h3>Quantity: </h3>
           <div className="flex ml-4  flex-row p-0 shadow-lg  w-fit items-center">
@@ -102,7 +114,7 @@ function ProductPage({ product }) {
           </button>
           <a
             onClick={() => router.back()}
-            className="border-2 font-normal mt-2 ml-10 p-3 hover:bg-gray-300 hover:border-0 duration-300 text-medium"
+            className="border-2 font-normal mt-2 ml-10 p-3 hover:bg-gray-300  hover:cursor-pointer duration-300 text-medium"
           >
             Torna Indietro
           </a>

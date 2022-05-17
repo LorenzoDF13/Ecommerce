@@ -18,7 +18,7 @@ nel terminale all'interno della cartella del progetto ed apire [http://localhost
 
 # Showcase
 
-[![](https://drive.google.com/uc?export=download&id=1TLT_ojP-qiaZDQ-vNp9-UMOOc7TJ3z2G)](https://drive.google.com/file/d/1cOkePlWpHNVnh14xdkB0zocvVEA6hyrK/view?usp=sharing 'Premi per visualizzare')
+[![](https://drive.google.com/uc?export=download&id=1TLT_ojP-qiaZDQ-vNp9-UMOOc7TJ3z2G)](https://drive.google.com/file/d/1cbQ_o3IUreZhhf15HFRJf12rZLlciIjw/view?usp=sharing 'Premi per visualizzare')
 
 # Descrizione
 
@@ -26,7 +26,7 @@ ATTENZIONE questa è solo un Introduzione al funzionamento e al design di questo
 
 ### Struttura Cartelle
 
-Il Progetto è diviso in 2 cartelle principali: `/Components` che contiene tutti i componenti che verranno utilizzati nelle pagine contenute nella cartella `/Pages` e delle cartelle meno importanti come`/styles` `/public` ecc.
+Il Progetto è diviso in 2 cartelle principali: `/Components` che contiene tutti i componenti che verranno utilizzati nelle pagine contenute nella cartella `/Pages` e delle cartelle meno importanti come`/styles` `/public` ecc. i dati sensibili(api key ecc) sono state caricati volutamente per permettere la riproduzione completa.
 
 ### Visualizzazione
 

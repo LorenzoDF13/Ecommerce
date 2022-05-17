@@ -25,6 +25,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/Cart.js"
     ],
+    "/Success": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Success.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

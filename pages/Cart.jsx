@@ -18,8 +18,7 @@ function Cart() {
   });
   function checkout() {
     console.log(user);
-    if (!user.uid) {
-      console.log('ci sono');
+    if (!user?.uid) {
       const google = new GoogleAuthProvider();
       signInWithPopup(auth, google)
         .then((res) => {

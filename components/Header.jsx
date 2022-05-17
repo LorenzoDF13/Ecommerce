@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { FiShoppingBag } from 'react-icons/Fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCart } from '../features/Cart/cartSlice';
-import { getCookie, setCookies } from 'cookies-next';
+import { getCookie } from 'cookies-next';
 import Link from 'next/link';
 import { auth } from '../Firebase';
 import {
@@ -38,6 +38,8 @@ function Header({ children }) {
     onAuthStateChanged(auth, (u) => {
       if (u) {
         dispatch(setAuth(u.toJSON()));
+      } else {
+        dispatch(setAuth(null));
       }
     });
   }, []);
@@ -59,7 +61,7 @@ function Header({ children }) {
           </a>
         </div>
         <div className="relative flex flex-row">
-          {user.isLoading ? (
+          {user?.isLoading ? (
             <div className="mx-4 mt-1">
               <TailSpin color="white" height={30} width={30} />
             </div>
