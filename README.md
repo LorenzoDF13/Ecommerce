@@ -6,9 +6,10 @@ Quest progetto è stato realizzato con [Nextjs](https://nextjs.org/) che in brev
 
 # Instruzioni per l'Avvio
 
-Per vedere il codice in azione è necessario assicurarsi di avere installato node js sul propio dispostivo. Successivamente eseguire il comando
+Per vedere il codice in azione è necessario assicurarsi di avere installato node js sul propio dispostivo. Successivamente eseguire i comandi
 
 ```bash
+npm i
 npm run dev
 ```
 

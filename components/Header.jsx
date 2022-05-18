@@ -69,6 +69,7 @@ function Header({ children }) {
             <img
               className="w-[35px] h-[35px] rounded-full mx-3"
               src={user.photoURL}
+              referrerpolicy="no-referrer"
             />
           ) : (
             <button
