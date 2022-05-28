@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { FiShoppingBag } from 'react-icons/Fi';
+import { RiShoppingBag3Line, RiShoppingBag3Fill } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadCart } from '../features/Cart/cartSlice';
 import { getCookie } from 'cookies-next';
@@ -13,7 +13,9 @@ import {
 } from 'firebase/auth';
 import { setAuth } from '../features/Cart/Auth/AuthSlice';
 import { TailSpin } from 'react-loader-spinner';
+import {useRouter} from 'next/router'
 function Header({ children }) {
+  const router = useRouter();
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const user = useSelector((state) => state.auth);
@@ -47,7 +49,7 @@ function Header({ children }) {
     <>
       <nav className="flex sticky top-0 z-10  justify-between primary p-2 items-center">
         <Link href="/" passHref scroll={false}>
-          <a>Home</a>
+          <a className={router.asPath==='/' ? 'font-bold' : ''}>Home</a>
         </Link>
         <div>
           <a href="/#automotive" className="p-2 hidden md:inline">
@@ -79,12 +81,14 @@ function Header({ children }) {
               Entra
             </button>
           )}
-          <p className="rounded-full bg-white text-black  absolute text-[12px] right-0  bottom-0 px-[5px] font-bold">
+          <p className="rounded-full bg-[#645cff] text-black  absolute text-[12px] right-0  bottom-[-3px] px-[5px] font-bold">
             {itemsNumber}
           </p>
           <Link href="/Cart" passHref>
             <a>
-              <FiShoppingBag size={35} />
+              {router.asPath === '/Cart' ? 
+              <RiShoppingBag3Fill size={35}/>
+             : <RiShoppingBag3Line size={35} />}
             </a>
           </Link>
         </div>
